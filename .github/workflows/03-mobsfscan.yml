@@ -9,7 +9,7 @@
    pull_request:
      branches: [ master, main ]
  jobs:
-    Name of Job
+   # Name of Job
    mobsfscan:
      permissions:
         id-token: write
@@ -18,15 +18,15 @@
      runs-on: ubuntu-latest
      name: mobsfscan code scanning
      steps:
-      This action checks-out your repository under #GITHUB_WORKSPACE, so your workflow can access it.
+     # This action checks-out your repository under #GITHUB_WORKSPACE, so your workflow can access it.
      - name: Checkout the code
        uses: actions/checkout@v2
-      Execute the MobSF scan and create a SARIF file
+     # Execute the MobSF scan and create a SARIF file
      - name: mobsfscan
        uses: MobSF/mobsfscan@main
        with:
          args: '. --sarif --output results.sarif || true'
-      Upload the SARIF file to Github, so the findings show up in "Security / Code Scanning alerts"
+     # Upload the SARIF file to Github, so the findings show up in "Security / Code Scanning alerts"
      - name: Upload mobsfscan report
        uses: github/codeql-action/upload-sarif@v2
        with:
